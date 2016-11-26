@@ -1,0 +1,8 @@
+{
+    "name": "hab/solr",
+    "autoload": {
+        "psr-0": {
+            "HAB": "src/"
+        }
+    }
+}
