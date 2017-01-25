@@ -60,10 +60,10 @@ class Search implements CommandInterface
      */
     private $builder;
 
-    public function __construct ($handler, QueryBuilderInterface $builder)
+    public function __construct ($handler, QueryBuilderInterface $builder = null)
     {
         $this->handler = $handler;
-        $this->builder = $builder;
+        $this->builder = $builder ?: new QueryBuilder();
     }
 
     /**
