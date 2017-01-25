@@ -42,6 +42,10 @@ class QueryBuilder implements QueryBuilderInterface
      */
     public function buildQuery ($query)
     {
-        return new ParamBag($query);
+        $params = new ParamBag();
+        foreach ($query as $key => $value) {
+            $params->set($key, $value);
+        }
+        return $params;
     }
 }
