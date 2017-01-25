@@ -62,7 +62,7 @@ class Search implements CommandInterface
 
     public function __construct ($handler, QueryBuilderInterface $builder = null)
     {
-        $this->handler = $handler;
+        $this->handler = ltrim($handler, '/');
         $this->builder = $builder ?: new QueryBuilder();
     }
 
