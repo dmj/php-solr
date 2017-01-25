@@ -81,7 +81,7 @@ class Record implements ArrayAccess
         if (array_key_exists($name, $this->fields)) {
             return $this->fields[$name];
         } else {
-            return '{missing value}';
+            return null;
         }
     }
 
