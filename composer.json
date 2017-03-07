@@ -4,5 +4,8 @@
         "psr-0": {
             "HAB": "src/"
         }
+    },
+    "require": {
+        "guzzlehttp/guzzle": "~6.0"
     }
 }
