@@ -51,7 +51,7 @@ class RecordCollection implements Iterator
      */
     protected static $template = array(
         'responseHeader' => array(),
-        'response'       => array('numFound' => 0, 'start' => 0),
+        'response'       => array('numFound' => 0, 'start' => 0, 'docs' => array()),
         'spellcheck'     => array('suggestions' => array()),
         'facet_counts'   => array(),
     );
@@ -275,8 +275,18 @@ class RecordCollection implements Iterator
      */
     public function getGroups()
     {
-        return isset($this->response['grouped'])
-            ? $this->response['grouped'] : array();
+        if (is_null($this->groups)) {
+            $this->groups = array();
+            if (isset($this->response['grouped'])) {
+                foreach ($this->response['grouped'] as $field => $group) {
+                    $this->groups[$field] = array();
+                    foreach ($group['groups'] as $data) {
+                        $this->groups[$field] []= new Group($data);
+                    }
+                }
+            }
+        }
+        return $this->groups;
     }
 
     /**
