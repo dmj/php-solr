@@ -94,6 +94,30 @@ class FacetCollection implements Countable, IteratorAggregate, ParameterProvider
     }
 
     /**
+     * Set the component state filter.
+     *
+     * @param  StateFilter\StateFilterInterface $filter
+     * @return void
+     */
+    public function setComponentStateFilter (StateFilter\StateFilterInterface $filter)
+    {
+        $this->filter = $filter;
+    }
+
+    /**
+     * Return the component state filter.
+     *
+     * @return StateFilter\StateFilterInterface
+     */
+    public function getComponentStateFilter ()
+    {
+        if (!$this->filter) {
+            $this->setComponentStateFilter(new StateFilter\DefaultFilter());
+        }
+        return $this->filter;
+    }
+
+    /**
      * {@inheritDoc}
      */
     public function getIterator ()
@@ -106,6 +130,7 @@ class FacetCollection implements Countable, IteratorAggregate, ParameterProvider
      */
     public function setComponentState (ParameterBag $state)
     {
+        $state = $this->getComponentStateFilter()->filter($state);
         foreach ($this->facets as $facet) {
             $facet->setComponentState($state);
         }
