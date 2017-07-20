@@ -98,6 +98,12 @@ class RecordCollection implements Iterator
      */
     protected $offset = 0;
 
+    /**
+     * Groups, if any.
+     *
+     * @var array
+     */
+    protected $groups;
     
     /**
      * Constructor.
