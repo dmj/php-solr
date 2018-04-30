@@ -119,7 +119,7 @@ class FacetCollection implements Countable, IteratorAggregate, ParameterProvider
     public function getComponentStateFilter ()
     {
         if (!$this->filter) {
-            $this->setComponentStateFilter(new StateFilter\DefaultFilter());
+            $this->setComponentStateFilter(new StateFilter\DefaultStateFilter());
         }
         return $this->filter;
     }
