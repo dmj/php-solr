@@ -51,6 +51,13 @@ class FacetCollection implements Countable, IteratorAggregate, ParameterProvider
     private $facets;
 
     /**
+     * Component state filter.
+     *
+     * @var StateFilter\StateFilterInterface
+     */
+    private $filter;
+
+    /**
      * Constructor.
      *
      * @return void
