@@ -10,6 +10,7 @@ Invoker <-- Solr : HTTP Response
 
 Invoker -> Command : setResponse()
 
-Controller <- Command : getResult()
+Controller -> Command : getResult()
+Controller <- Command : [RecordCollection]
 
 @enduml
