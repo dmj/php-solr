@@ -1,0 +1,15 @@
+@startuml
+
+Controller -> Invoker : invoke()
+
+Invoker -> Command : getParameters()
+Invoker <- Command : [ParamBag]
+
+Invoker --> Solr : HTTP Request
+Invoker <-- Solr : HTTP Response
+
+Invoker -> Command : setResponse()
+
+Controller <- Command : getResult()
+
+@enduml
