@@ -12,15 +12,13 @@ General Public License v3 or higher.
 Using the invoker
 --
 
-![Using the Invoker](docs/invoker.png "Using the Invoker")
-
 The [Invoker](src/HAB/Solr/Command/Search.php) reads the query parameters from the [Command](src/HAB/Solr/Command/Search.php), 
 optionally merges them with static or dynamic default parameters, and communicates with the Solr backend using a
 [Guzzle](http://guzzlephp.org) HTTP client.
 
 The body of the Solr response is passed to [Command](src/HAB/Solr/Command/Search.php).
 
-
+![Using the Invoker](docs/invoker.png "Using the Invoker")
 
 Using the search command
 --
