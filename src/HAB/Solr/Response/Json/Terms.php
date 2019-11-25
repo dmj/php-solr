@@ -84,7 +84,7 @@ class Terms implements IteratorAggregate
      *
      * @param string $field Field name
      *
-     * @return array
+     * @return array|null
      */
     public function getFieldTerms($field)
     {
