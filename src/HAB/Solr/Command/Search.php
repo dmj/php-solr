@@ -119,7 +119,7 @@ class Search implements CommandInterface
 
     public function getQuery ()
     {
-        if (is_null($this->query)) {
+        if ($this->query === null) {
             $this->setQuery(new ArrayObject());
         }
         return $this->query;

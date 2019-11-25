@@ -140,10 +140,10 @@ abstract class AbstractFacetAdapter implements FacetAdapterInterface
      */
     public function getFacetValueContainer ()
     {
-        if (!$this->container) {
+        if ($this->container === null) {
             $this->setFacetValueContainer(new Value\Container\FacetValueList());
         }
-        if ($this->sort) {
+        if ($this->sort !== null) {
             call_user_func($this->sort, $this->container);
         }
         return $this->container;
@@ -165,7 +165,7 @@ abstract class AbstractFacetAdapter implements FacetAdapterInterface
      */
     public function getRequestValueMapper ()
     {
-        if (!$this->mapper) {
+        if ($this->mapper === null) {
             $this->setRequestValueMapper(new ValueMapper\RequestValueIdentityMapper());
         }
         return $this->mapper;
@@ -189,7 +189,7 @@ abstract class AbstractFacetAdapter implements FacetAdapterInterface
     public function setComponentState (array $state)
     {
         if (array_key_exists('f', $state)) {
-            $params = $state->get('f');
+            $params = $state['f'];
             if ($params && is_array($params) && isset($params[$this->getName()])) {
                 $this->setFilterValues($params[$this->getName()]);
             }
@@ -200,7 +200,7 @@ abstract class AbstractFacetAdapter implements FacetAdapterInterface
     public function getGlobalComponentState ()
     {
         if ($this->state) {
-            return $this->state->all();
+            return $this->state;
         }
         return array();
     }

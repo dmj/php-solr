@@ -103,7 +103,7 @@ class FacetValueList implements ContainerInterface
      */
     public function sortByLabel ($reverse = false)
     {
-        usort($this->values, array('HAB Solr\Search\Facet\Value\FacetValue', 'compareByLabel'));
+        usort($this->values, array(FacetValue::class, 'compareByLabel'));
         if ($reverse) {
             $this->values = array_reverse($this->values);
         }
@@ -114,7 +114,7 @@ class FacetValueList implements ContainerInterface
      */
     public function sortByCount ($reverse = false)
     {
-        usort($this->values, array('HAB Solr\Search\Facet\Value\FacetValue', 'compareByCount'));
+        usort($this->values, array(FacetValue::class, 'compareByCount'));
         if ($reverse) {
             $this->values = array_reverse($this->values);
         }

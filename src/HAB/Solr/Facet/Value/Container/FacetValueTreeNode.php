@@ -82,7 +82,7 @@ class FacetValueTreeNode implements RecursiveIterator
     public static function getCollator ()
     {
         if (self::$collator === null) {
-            self::$collator = new Collator(null);
+            self::$collator = new Collator('');
         }
         return self::$collator;
     }
@@ -199,7 +199,7 @@ class FacetValueTreeNode implements RecursiveIterator
     /**
      * Return node value.
      *
-     * @return FacetValue|null
+     * @return FacetValue
      */
     public function getValue ()
     {
@@ -213,7 +213,7 @@ class FacetValueTreeNode implements RecursiveIterator
      */
     public function hasValue ()
     {
-        return !!$this->value;
+        return $this->value !== null;
     }
 
     /**
@@ -292,7 +292,7 @@ class FacetValueTreeNode implements RecursiveIterator
         foreach ($this->childNodes as $node) {
             $node->sortByLabel($reverse);
         }
-        usort($this->childNodes, 'self::compareByLabel');
+        usort($this->childNodes, array(FacetValueTreeNode::class, 'compareByLabel'));
         if ($reverse) {
             $this->childNodes = array_reverse($this->childNodes);
         }

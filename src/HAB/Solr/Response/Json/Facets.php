@@ -84,7 +84,7 @@ class Facets
      */
     public function getFieldFacets()
     {
-        if (!$this->fields) {
+        if ($this->fields === null) {
             $this->fields = new ArrayObject();
             if (isset($this->facets['facet_fields'])) {
                 foreach ($this->facets['facet_fields'] as $name => $info) {
@@ -102,7 +102,7 @@ class Facets
      */
     public function getQueryFacets()
     {
-        if (!$this->queries) {
+        if ($this->queries === null) {
             $this->queries = new ArrayObject();
             if (isset($this->facets['facet_queries'])) {
                 $this->queries->exchangeArray($this->facets['facet_queries']);

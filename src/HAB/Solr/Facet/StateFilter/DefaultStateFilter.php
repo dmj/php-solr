@@ -41,6 +41,6 @@ class DefaultStateFilter implements StateFilterInterface
      */
     public function filter (array $state)
     {
-        return clone($state);
+        return $state;
     }
 }

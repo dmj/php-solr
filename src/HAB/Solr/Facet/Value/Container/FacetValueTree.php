@@ -69,13 +69,13 @@ class FacetValueTree implements ContainerInterface
     /**
      * Constructor.
      *
-     * @param  FacetValueTreePathFactory $pathFactory
+     * @param  PathFactory\PathFactoryInterface $pathFactory
      * @return void
      */
     public function __construct (PathFactory\PathFactoryInterface $pathFactory)
     {
         $this->pathFactory = $pathFactory;
-        $this->rootNode    = new FacetValueTreeNode(uniqid(true));
+        $this->rootNode    = new FacetValueTreeNode(uniqid('node', true));
         $this->values      = array();
     }
 
@@ -152,7 +152,7 @@ class FacetValueTree implements ContainerInterface
     public function sortByLabel ($reverse = false)
     {
         $this->rootNode->sortByLabel($reverse);
-        $sortfunc = array('HAB Solr\Search\Facet\Value\FacetValue', 'compareByLabel');
+        $sortfunc = array(FacetValue::class, 'compareByLabel');
         usort($this->values, $sortfunc);
         if ($reverse) {
             $this->values = array_reverse($this->values);
@@ -164,7 +164,7 @@ class FacetValueTree implements ContainerInterface
      */
     public function sortByCount ($reverse = false)
     {
-        $sortfunc = array('HAB Solr\Search\Facet\Value\FacetValue', 'compareByCount');
+        $sortfunc = array(FacetValue::class, 'compareByCount');
         $this->sortByFunction($sortfunc, $reverse);
     }
 

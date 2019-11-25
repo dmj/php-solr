@@ -122,7 +122,7 @@ class RequestValueArrayMapMapper implements RequestValueMapperInterface
     private function lookupRequestValue ($facetValue)
     {
         $key = array_search($facetValue, $this->map);
-        if ($key !== false) {
+        if (is_string($key)) {
             return $key;
         }
         return null;

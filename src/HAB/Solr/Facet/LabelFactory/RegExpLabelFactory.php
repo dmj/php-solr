@@ -65,7 +65,7 @@ class RegExpLabelFactory implements LabelFactoryInterface
     public function createLabel ($value)
     {
         if (preg_match($this->pattern, $value)) {
-            return preg_replace($this->pattern, $this->template, $value);
+            return (string)preg_replace($this->pattern, $this->template, $value);
         }
         return $value;
     }

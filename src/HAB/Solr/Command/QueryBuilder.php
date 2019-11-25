@@ -37,7 +37,7 @@ class QueryBuilder implements QueryBuilderInterface
     /**
      * Return Solr query parameters.
      *
-     * @param  array|\ArrayAccess $query
+     * @param  iterable $query
      * @return ParamBag
      */
     public function buildQuery ($query)

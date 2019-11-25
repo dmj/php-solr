@@ -88,17 +88,8 @@ class DefaultFacetAdapter extends AbstractFacetAdapter
     /**
      * {@inheritDoc}
      */
-    public function getSearchParameters ()
-    {
-        return $this->facet->getSearchParameters();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function setRecordCollection (RecordCollection $response)
     {
-        $this->facet->setRecordCollection($response);
         $container = $this->getFacetValueContainer();
         $factory   = $this->getFacetValueLabelFactory();
         $selected  = $this->facet->getSelected();
@@ -133,7 +124,7 @@ class DefaultFacetAdapter extends AbstractFacetAdapter
      */
     public function getFacetValueLabelFactory ()
     {
-        if (!$this->labelFactory) {
+        if ($this->labelFactory === null) {
             $this->setFacetValueLabelFactory(new LabelFactory\DefaultLabelFactory());
         }
         return $this->labelFactory;

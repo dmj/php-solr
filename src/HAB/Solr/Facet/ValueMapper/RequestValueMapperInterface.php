@@ -53,7 +53,7 @@ interface RequestValueMapperInterface
      * Map a single value from request to internal representation.
      *
      * @param  string $value
-     * @return string
+     * @return string|null
      */
     public function mapFromRequestSingleValue ($value);
 
@@ -61,7 +61,7 @@ interface RequestValueMapperInterface
      * Map a single value from  internal representation to request.
      *
      * @param  string $value
-     * @return string
+     * @return string|null
      */
     public function mapToRequestSingleValue ($value);
 }

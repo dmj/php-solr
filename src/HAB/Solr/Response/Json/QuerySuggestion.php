@@ -50,7 +50,7 @@ class QuerySuggestion
     /**
      * Number of records matching the query.
      *
-     * @var integer|false
+     * @var integer|null
      */
     private $hits;
 
@@ -58,11 +58,11 @@ class QuerySuggestion
      * Constructor.
      *
      * @param  string  $query
-     * @param  integer $hitcount
+     * @param  integer $hits
      *
      * @return void
      */
-    public function __construct ($query, $hits = false)
+    public function __construct ($query, $hits = null)
     {
         $this->query = $query;
         $this->hits = $hits;
@@ -81,7 +81,7 @@ class QuerySuggestion
     /**
      * Return number of matching records.
      *
-     * @return integer
+     * @return integer|null
      */
     public function getHits ()
     {

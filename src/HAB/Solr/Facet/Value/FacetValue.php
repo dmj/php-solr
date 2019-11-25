@@ -92,7 +92,7 @@ class FacetValue
     public static function getCollator ()
     {
         if (self::$collator === null) {
-            self::$collator = new Collator(null);
+            self::$collator = new Collator('');
         }
         return self::$collator;
     }

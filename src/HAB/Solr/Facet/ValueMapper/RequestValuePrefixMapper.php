@@ -66,7 +66,7 @@ class RequestValuePrefixMapper implements RequestValueMapperInterface
         if (is_array($values)) {
             return array_map(array($this, 'addPrefix'), $values);
         }
-        return $this->addPrefix($values);
+        return (array)$this->addPrefix($values);
     }
 
     /**

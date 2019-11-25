@@ -64,7 +64,7 @@ class FieldFacet implements FacetImplInterface
     /**
      * Filter query tag, if any.
      *
-     * @var string
+     * @var string|null
      */
     private $fqTag;
 
@@ -356,7 +356,7 @@ class FieldFacet implements FacetImplInterface
      */
     public function __clone ()
     {
-        if ($this->localParams) {
+        if ($this->localParams !== null) {
             $this->localParams = clone($this->localParams);
         }
         $this->fqTag = null;

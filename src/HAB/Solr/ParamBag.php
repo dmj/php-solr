@@ -95,7 +95,7 @@ class ParamBag
      * Set a parameter.
      *
      * @param string $name  Parameter name
-     * @param string $value Parameter value
+     * @param mixed $value Parameter value
      *
      * @return void
      */
