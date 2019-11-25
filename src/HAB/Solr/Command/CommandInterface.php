@@ -23,6 +23,8 @@
 
 namespace HAB\Solr\Command;
 
+use HAB\Solr\ParamBag;
+
 /**
  * Interface of a Solr command.
  *
@@ -42,7 +44,7 @@ interface CommandInterface
     /**
      * Return parameters.
      *
-     * @return array
+     * @return ParamBag
      */
     public function getParameters ();
 

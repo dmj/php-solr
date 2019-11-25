@@ -103,7 +103,7 @@ class Invoker
      */
     public function getParameters ()
     {
-        if (is_null($this->parameters)) {
+        if ($this->parameters === null) {
             $this->setParameters(new ParamBag());
         }
         return $this->parameters;
@@ -113,7 +113,7 @@ class Invoker
      * Set parameters.
      *
      * @param  ParamBag $parameters
-     * @return
+     * @return void
      */
     public function setParameters (ParamBag $parameters)
     {
