@@ -23,8 +23,6 @@
 
 namespace HAB\Solr\Facet\StateFilter;
 
-use Symfony\Component\HttpFoundation\ParameterBag;
-
 /**
  * Interface of a component state filter.
  *
@@ -37,8 +35,8 @@ interface StateFilterInterface
     /**
      * Return filtered state.
      *
-     * @param  ParameterBag $state
-     * @return ParameterBag
+     * @param  array $state
+     * @return array
      */
-    public function filter (ParameterBag $state);
+    public function filter (array $state);
 }

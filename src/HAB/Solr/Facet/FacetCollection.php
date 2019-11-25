@@ -27,8 +27,6 @@ use HAB\Solr\Response\Json\RecordCollection;
 use HAB\Solr\Response\Json\RecordCollectionConsumerInterface;
 use HAB\Solr\ParameterProviderInterface;
 
-use Symfony\Component\HttpFoundation\ParameterBag;
-
 use Countable;
 use ArrayIterator;
 use IteratorAggregate;
@@ -135,7 +133,7 @@ class FacetCollection implements Countable, IteratorAggregate, ParameterProvider
     /**
      * {@inheritDoc}
      */
-    public function setComponentState (ParameterBag $state)
+    public function setComponentState (array $state)
     {
         $state = $this->getComponentStateFilter()->filter($state);
         foreach ($this->facets as $facet) {

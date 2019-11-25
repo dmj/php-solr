@@ -23,8 +23,6 @@
 
 namespace HAB\Solr\Facet;
 
-use Symfony\Component\HttpFoundation\ParameterBag;
-
 /**
  * An abstract base class for facet adapters.
  *
@@ -72,7 +70,7 @@ abstract class AbstractFacetAdapter implements FacetAdapterInterface
     /**
      * Application state.
      *
-     * @var ParameterBag
+     * @var array
      */
     private $state;
 
@@ -188,11 +186,13 @@ abstract class AbstractFacetAdapter implements FacetAdapterInterface
     /**
      * {@inheritDoc}
      */
-    public function setComponentState (ParameterBag $state)
+    public function setComponentState (array $state)
     {
-        $params = $state->get('f');
-        if ($params && is_array($params) && isset($params[$this->getName()])) {
-            $this->setFilterValues($params[$this->getName()]);
+        if (array_key_exists('f', $state)) {
+            $params = $state->get('f');
+            if ($params && is_array($params) && isset($params[$this->getName()])) {
+                $this->setFilterValues($params[$this->getName()]);
+            }
         }
         $this->state = $state;
     }

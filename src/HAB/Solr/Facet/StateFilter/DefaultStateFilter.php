@@ -39,7 +39,7 @@ class DefaultStateFilter implements StateFilterInterface
     /**
      * {@inheritDoc}
      */
-    public function filter (ParameterBag $state)
+    public function filter (array $state)
     {
         return clone($state);
     }
