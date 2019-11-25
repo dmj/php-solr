@@ -54,6 +54,13 @@ class Search implements CommandInterface
     private $query;
 
     /**
+     * Result.
+     *
+     * @var RecordCollection
+     */
+    private $result;
+
+    /**
      * Query builder.
      *
      * @var QueryBuilderInterface
