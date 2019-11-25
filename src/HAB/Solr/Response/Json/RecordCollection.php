@@ -114,7 +114,7 @@ class RecordCollection implements Iterator
      */
     public function __construct(array $response)
     {
-        $this->response = array_replace_recursive(static::$template, $response);
+        $this->response = (array)array_replace_recursive(static::$template, $response);
         $this->offset = $this->response['response']['start'];
         foreach ($this->response['response']['docs'] as $record) {
             $this->add(new Record($record));
@@ -238,7 +238,7 @@ class RecordCollection implements Iterator
      */
     public function getSpellcheck()
     {
-        if (!$this->spellcheck) {
+        if ($this->spellcheck === null) {
             $params = isset($this->response['responseHeader']['params'])
                 ? $this->response['responseHeader']['params'] : array();
             $sq = isset($params['spellcheck.q'])
@@ -264,11 +264,11 @@ class RecordCollection implements Iterator
     /**
      * Return SOLR facet information.
      *
-     * @return array
+     * @return Facets
      */
     public function getFacets()
     {
-        if (!$this->facets) {
+        if ($this->facets === null) {
             $this->facets = new Facets($this->response['facet_counts']);
         }
         return $this->facets;
@@ -281,7 +281,7 @@ class RecordCollection implements Iterator
      */
     public function getGroups()
     {
-        if (is_null($this->groups)) {
+        if ($this->groups === null) {
             $this->groups = array();
             if (isset($this->response['grouped'])) {
                 foreach ($this->response['grouped'] as $field => $group) {
