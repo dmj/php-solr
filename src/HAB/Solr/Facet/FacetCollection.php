@@ -82,7 +82,7 @@ class FacetCollection implements Countable, IteratorAggregate, ParameterProvider
     /**
      * Return facet by name.
      *
-     * @return FacetDecorator|null
+     * @return FacetAdapterInterface|null
      */
     public function getFacet ($name)
     {
