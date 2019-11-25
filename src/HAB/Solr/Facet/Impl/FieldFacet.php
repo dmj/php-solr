@@ -28,6 +28,7 @@ use HAB\Solr\Facet\Value\FacetValue;
 
 use HAB\Solr\Response\Json\RecordCollection;
 
+use Traversable;
 use InvalidArgumentException;
 
 /**
