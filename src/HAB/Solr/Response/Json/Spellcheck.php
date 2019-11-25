@@ -30,6 +30,7 @@
 namespace HAB\Solr\Response\Json;
 
 use IteratorAggregate;
+use ArrayIterator;
 use ArrayObject;
 use Countable;
 

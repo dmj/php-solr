@@ -30,6 +30,7 @@
 namespace HAB\Solr\Response\Json;
 
 use ArrayObject;
+use ArrayIterator;
 use IteratorAggregate;
 
 /**
