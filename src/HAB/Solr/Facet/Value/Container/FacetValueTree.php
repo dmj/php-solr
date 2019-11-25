@@ -82,7 +82,7 @@ class FacetValueTree implements ContainerInterface
     /**
      * Return the root node.
      *
-     * @return Node
+     * @return FacetValueTreeNode
      */
     public function getRootNode ()
     {
