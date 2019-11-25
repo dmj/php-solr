@@ -23,6 +23,8 @@
 
 namespace HAB\Solr\Facet\Value\Container\PathFactory;
 
+use HAB\Solr\Facet\Value\FacetValue;
+
 use SplObjectStorage;
 use Normalizer;
 
