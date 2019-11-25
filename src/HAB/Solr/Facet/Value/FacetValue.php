@@ -129,6 +129,13 @@ class FacetValue
     private $label;
 
     /**
+     * Query parameters.
+     *
+     * @var mixed
+     */
+    private $query;
+
+    /**
      * Constructor.
      *
      * @param  string        $value
