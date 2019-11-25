@@ -59,7 +59,7 @@ interface FacetAdapterInterface
     /**
      * Return the request value mapper.
      *
-     * @return ValueMapper\ValueMapperInterface
+     * @return ValueMapper\RequestValueMapperInterface
      */
     public function getRequestValueMapper ();
 }
