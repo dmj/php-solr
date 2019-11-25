@@ -71,7 +71,7 @@ class Spellcheck implements IteratorAggregate, Countable
      *
      * @var Spellcheck
      */
-    protected $secondary = false;
+    protected $secondary;
 
     /**
      * Constructor.
@@ -129,14 +129,14 @@ class Spellcheck implements IteratorAggregate, Countable
         // Merge primary suggestions:
         $this->terms->uksort(array($this, 'compareTermLength'));
         foreach ($spellcheck as $term => $info) {
-            if (!$this->contains($term)) {
+            if (is_string($term) && !$this->contains($term)) {
                 $this->terms->offsetSet($term, $info);
             }
         }
 
         // Store secondary suggestions in case merge yielded non-useful
         // result set:
-        if (!$this->secondary) {
+        if ($this->secondary === null) {
             $this->secondary = $spellcheck;
         } else {
             $this->secondary->mergeWith($spellcheck);
