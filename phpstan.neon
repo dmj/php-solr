@@ -1,0 +1,5 @@
+parameters:
+  ignoreErrors:
+    -
+      message: '#Cannot call method [^ ]+ on HAB\\Solr\\Facet\\Value\\Container\\FacetValueTreeNode|null.#'
+      path: src/HAB/Solr/Facet/Value/Container/FacetValueTree.php
