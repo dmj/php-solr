@@ -72,7 +72,7 @@ class Invoker
      */
     public function invoke (CommandInterface $command, ParamBag $parameters = null)
     {
-        $params = $this->getParameters();
+        $params = clone($this->getParameters());
         if ($parameters) {
             $params->mergeWith($parameters);
         }
